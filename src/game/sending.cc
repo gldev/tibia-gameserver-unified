@@ -26,7 +26,9 @@ void SendAll(void){
 #if OS_WINDOWS
 				SendData(Connection);
 #else
-				tgkill(GetGameProcessID(), Connection->GetThreadID(), SIGUSR2);
+				SendData(Connection);
+				// TODO: Verify why were we skipping other OS
+				// tgkill(GetGameProcessID(), Connection->GetThreadID(), SIGUSR2);
 #endif
 			}
 		}else{
